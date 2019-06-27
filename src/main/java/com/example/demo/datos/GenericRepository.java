@@ -1,4 +1,4 @@
-package com.example.demo.servicios;
+package com.example.demo.datos;
 
 import java.io.Serializable;
 

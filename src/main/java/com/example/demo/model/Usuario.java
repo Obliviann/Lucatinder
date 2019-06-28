@@ -23,7 +23,7 @@ public class Usuario {
 		super();
 	}
 	
-	public Usuario(int idusuario, String nombre, String genero, Date edad, String poblacion, int idintereses,
+	public Usuario(int idusuario, String nombre, String genero, Date edad, String poblacion, Integer idintereses,
 			String descripcion) {
 		super();
 		this.idusuario = idusuario;

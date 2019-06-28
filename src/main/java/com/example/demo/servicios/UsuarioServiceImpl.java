@@ -8,13 +8,12 @@ import com.example.demo.datos.UsuarioRepository;
 import com.example.demo.model.Usuario;
 
 public class UsuarioServiceImpl implements UsuarioService {
-	
+
 	@Autowired
-	private UsuarioRepository repository; 
+	private UsuarioRepository repository;
 
 	@Override
 	public Usuario create(Usuario user) {
-		// TODO Auto-generated method stub
 		return repository.save(user);
 	}
 

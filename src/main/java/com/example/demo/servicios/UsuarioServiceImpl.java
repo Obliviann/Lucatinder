@@ -1,14 +1,17 @@
 package com.example.demo.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.datos.UsuarioRepository;
 import com.example.demo.model.Usuario;
 import com.github.javafaker.Faker;
 
+@Service
 public class UsuarioServiceImpl implements UsuarioService {
 	
 	@Autowired
@@ -52,7 +55,23 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public List<Usuario> generateTen() {
 		// TODO Auto-generated method stub
 		Faker faker = new Faker(new Locale("es"));
-		return null;
+		
+		List<Usuario> listaUsuarios = new ArrayList<Usuario>(); 
+		
+		for(int i = 1; i <= 10; i++) {
+			int genero = faker.number().numberBetween(0, 1);
+			if(genero==0) {
+				Usuario user = new Usuario(faker.name().fullName(), "h", faker.date().birthday());
+				listaUsuarios.add(user);
+				repository.save(user);
+			}else {
+				Usuario user = new Usuario(faker.name().fullName(), "m", faker.date().birthday());
+				listaUsuarios.add(user);
+				repository.save(user);
+			}
+		}
+		
+		return listaUsuarios;
 	}
 
 }

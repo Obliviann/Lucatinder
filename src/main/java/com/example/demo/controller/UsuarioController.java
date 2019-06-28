@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,5 +47,23 @@ public class UsuarioController {
 		return usuarioService.deleteById(id);
 	}*/
 	
+	
+	@DeleteMapping(path = { "/{idusuario}" })
+	public Usuario delete(@PathVariable("idusuario") int id) {
+		return usuarioService.deleteById(id);
+	}
+
+	/*
+	@GetMapping
+	public List<Usuario> findAll() {
+		return usuarioService.findAll();
+	}*/
+	
+	
+	//Rest para añadir generar los 10 usuarios
+	@GetMapping(path = { "/{idusuario}" })
+	public List<Usuario> generateTen() {
+		return usuarioService.generateTen();
+	}
 	
 }

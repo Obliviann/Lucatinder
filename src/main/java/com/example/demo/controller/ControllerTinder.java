@@ -23,7 +23,8 @@ public class ControllerTinder {
 	private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 	
 	@GetMapping("/")
-	public String inicio() {
+	public String inicio(ModelMap model) {
+		model.addAttribute("user", new Usuario());
 		return "inicio";
 	}
 	
@@ -31,7 +32,7 @@ public class ControllerTinder {
 	public String listado(ModelMap model) {
 		logger.info("En el listado");
 		model.addAttribute("listado", usuarioService.generateTen());
-		return "inicio";
+		return "bienvenida";
 	}
 	
 	@PostMapping("/save")

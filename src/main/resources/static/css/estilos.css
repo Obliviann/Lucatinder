@@ -30,7 +30,7 @@
 }
 
 body{
-    background-image: url(resources/img/fondo.jpg);
+    background-image: url(../img/fondo.jpg);
     background-position: center 18px;
     background-size: 420px;
     background-repeat: no-repeat;

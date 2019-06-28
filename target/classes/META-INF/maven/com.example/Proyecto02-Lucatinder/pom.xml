@@ -56,7 +56,7 @@
 		<dependency>
 			<groupId>com.github.javafaker</groupId>
 			<artifactId>javafaker</artifactId>
-			<version>0.12</version>
+			<version>0.15</version>
 		</dependency>
 	</dependencies>
 

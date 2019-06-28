@@ -18,4 +18,6 @@ public interface UsuarioService {
 	
 	List<Usuario> generateTen();
 	
+	void like(int id1, int id2);
+	
 }

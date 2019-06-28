@@ -24,7 +24,7 @@ public class ControllerTinder {
 	
 	@GetMapping("/")
 	public String inicio(ModelMap model) {
-		logger.info(" --- En ");
+		logger.info(" --- En INICIO ");
 		model.addAttribute("user", new Usuario());
 		return "inicio";
 	}
@@ -52,4 +52,10 @@ public class ControllerTinder {
 			return "redirect:/inicio";
 		}
 	}
+	
+	
+	
+	
+	
+	
 }

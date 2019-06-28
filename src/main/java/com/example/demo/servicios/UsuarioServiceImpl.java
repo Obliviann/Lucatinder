@@ -20,6 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public Usuario create(Usuario user) {
 		// TODO Auto-generated method stub
+		System.out.println("--- "+user);
 		return repository.save(user);
 	}
 
@@ -73,5 +74,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 		return listaUsuarios;
 	}
+
+	@Override
+	public void like(int id1, int id2) {
+		
+		
+	}
+	
+	
 
 }

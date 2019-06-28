@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +16,7 @@ public class Usuario {
 	private String genero;
 	private Date edad;
 	private String poblacion;
-	private int idintereses;
+	private Integer idintereses;
 	private String descripcion;
 	
 	public Usuario() {
@@ -62,7 +63,7 @@ public class Usuario {
 	public String getPoblacion() {
 		return poblacion;
 	}
-	public int getIdintereses() {
+	public Integer getIdintereses() {
 		return idintereses;
 	}
 	
@@ -90,13 +91,21 @@ public class Usuario {
 		this.poblacion = poblacion;
 	}
 	
-	
-	public void setIdintereses(int idintereses) {
+	@Column(nullable=true)
+	public void setIdintereses(Integer idintereses) {
 		this.idintereses = idintereses;
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [idusuario=" + idusuario + ", nombre=" + nombre + ", genero=" + genero + ", edad=" + edad
+				+ ", poblacion=" + poblacion + ", idintereses=" + idintereses + ", descripcion=" + descripcion + "]";
+	}
+	
+	
 	
 	
 	

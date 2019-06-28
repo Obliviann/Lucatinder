@@ -61,7 +61,7 @@ public class UsuarioController {
 	
 	
 	//Rest para añadir generar los 10 usuarios
-	@GetMapping(path = { "/{idusuario}" })
+	@GetMapping(path = { "/ten" })
 	public List<Usuario> generateTen() {
 		return usuarioService.generateTen();
 	}

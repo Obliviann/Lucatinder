@@ -16,4 +16,6 @@ public interface UsuarioService {
 
 	Usuario update(Usuario user);
 	
+	List<Usuario> generateTen();
+	
 }

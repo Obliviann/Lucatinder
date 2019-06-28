@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.datos.UsuarioRepository;
 import com.example.demo.model.Usuario;
 import com.github.javafaker.Faker;
 
+@Service
 public class UsuarioServiceImpl implements UsuarioService {
 	
 	@Autowired

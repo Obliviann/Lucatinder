@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.model.Usuario;
@@ -20,17 +22,23 @@ public class ControllerTinder {
 	
 	private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 	
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String inicio() {
 		return "inicio";
 	}
 	
-	@GetMapping("/new")
-	public String addUser(ModelMap model) {
-		logger.info("-- en NEW");
-		model.addAttribute("user", new Usuario());
-		return "UserFrom";
-		
+	@RequestMapping("/listado")
+	public String listado(ModelMap model) {
+		logger.info("En el listado");
+		model.addAttribute("listado", usuarioService.generateTen());
+		return "inicio";
+	}
+	
+	@PostMapping("/save")
+	public String saveUser(@ModelAttribute Usuario user) {
+		logger.info("RegistroUsuario");
+		usuarioService.create(user);
+		return "redirect:/listado";
 	}
 	
 }

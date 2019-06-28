@@ -1,0 +1,42 @@
+.titulo{
+   color: #ffffff;
+    font-family: 'Pacifico', cursive;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px
+}
+
+.subtitulo{
+    color: #b7b7b7;
+    font-family: 'Pacifico', cursive;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    
+}
+
+#grilla{
+    width: 100%;
+    
+}
+
+.navbarTinder{
+    margin-top: -15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body{
+    background-image: url(resources/img/fondo.jpg);
+    background-position: center 18px;
+    background-size: 420px;
+    background-repeat: no-repeat;
+}
+
+
+
+.tabla{
+    }

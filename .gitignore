@@ -58,3 +58,4 @@ LucaTinder/target/
 ### VS Code ###
 
 # .vscode/
+target/classes/META-INF/maven/com.example/Proyecto02-Lucatinder/pom.properties

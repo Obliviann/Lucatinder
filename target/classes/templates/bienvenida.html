@@ -31,14 +31,17 @@
     
     </thead>
     <tbody>
-    <tr *ngFor="let user of users">
+    <c:forEach var="user" items="${userList}" varStatus="status">
+    <tr>
      <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td>
-      <td>{{user.name}}</td>
-      <td>{{user.edad}}</td>      
+      <td>{{user.Nombre}}</td>
+      <td>{{user.Edad}}</td>      
       <td><button class="btn btn-success" (click)=#>♥</button></td>
       <td><button class="btn btn-danger" (click)=# style="font-weight: bold">X</button></td>
+      
 
     </tr>
+    </c:forEach>
     </tbody>
   </table>
   </div>

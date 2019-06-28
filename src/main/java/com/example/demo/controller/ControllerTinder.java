@@ -31,7 +31,7 @@ public class ControllerTinder {
 	public String listado(ModelMap model) {
 		logger.info("En el listado");
 		model.addAttribute("listado", usuarioService.generateTen());
-		return "inicio";
+		return "bienvenida";
 	}
 	
 	@PostMapping("/save")

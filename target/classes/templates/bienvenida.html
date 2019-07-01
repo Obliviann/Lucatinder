@@ -7,8 +7,9 @@
     <title>Inicio</title>
      <link rel="stylesheet" href="resources/css/estilos.css">
     <link rel="stylesheet" href="resources/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">    
 </head>
+
 <body>
   <div class="titulo"><p>LucaTinder</p></div>
   
@@ -28,22 +29,22 @@
     <div class="col-md-4 text-center" style="margin: auto">
   <h2 class="subtitulo">Perfiles seleccionados</h2>
   <div class="table-responsive-md">
-  <table class="table table-striped">
+  <table id="listado" class="table">
   
   	<tr>
-  	<td>Nombre</td>
-  	<td>Fecha Nacimiento</td>
-  	<td>Like</td>
-  	<td>DisLike</td>
+  	<td style="font-weight:bold;text-align:left">Nombre</td>
+  	<td style=font-weight:bold>Género</td>
+  	<td style=font-weight:bold>Like</td>
+  	<td style=font-weight:bold>DisLike</td>
   	</tr>
     
     <tr th:each= "user : ${listado}">
     
       <!-- <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td> -->
-      <td th:text=${user.nombre}>Nombre</td>
-      <td th:text=${user.edad}>Fecha de Nacimiento</td>         
-      <td><button class="btn btn-success" (click)=#>♥</button></td>
-      <td><button class="btn btn-danger" (click)=# style="font-weight: bold">X</button></td>
+      <td style=text-align:left th:text=${user.nombre}>Nombre</td>
+      <td th:text=${user.genero}>Fecha de Nacimiento</td>         
+      <td><a href="/like"><button id="btn-like" class="btn btn-success">♥</button></a></td>
+      <td><button id="btn-dislike" class="btn btn-danger" style="font-weight: bold">X</button></td>
       </div>    
 
     </tr>

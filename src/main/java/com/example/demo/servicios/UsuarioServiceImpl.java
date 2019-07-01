@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +17,9 @@ import com.github.javafaker.Faker;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
+	
+	@PersistenceContext
+	EntityManager entityManager;
 	
 	@Autowired
 	private UsuarioRepository repository; 
@@ -77,9 +84,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public void like(int id1, int id2) {
+		Query query = entityManager.createNativeQuery("INSERT INTO contactos VALUES ('null','?','?') ", Usuario.class);
+		query.setParameter(2, id1);
+		query.setParameter(3, id2);
 		
-		
+		query.executeUpdate();
 	}
+
+	
 	
 	
 

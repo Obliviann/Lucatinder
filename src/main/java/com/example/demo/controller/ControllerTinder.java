@@ -55,11 +55,13 @@ public class ControllerTinder {
 	
 		
 	@GetMapping("/like")
-	public String like() {
-				
+	public String like(@ModelAttribute Usuario user) {
+				logger.info("Acaba de darle al botón de like");
 		return "redirect:/listado";
 		
 	}
+	
+	
 	
 	
 	

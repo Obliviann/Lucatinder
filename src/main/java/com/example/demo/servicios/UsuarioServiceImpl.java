@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,9 @@ import com.github.javafaker.Faker;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
+	
+	
+	private static final Logger logger = LoggerFactory.getLogger(UsuarioServiceImpl.class);
 	
 	@PersistenceContext
 	EntityManager entityManager;
@@ -84,7 +89,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public void like(int id1, int id2) {
-		Query query = entityManager.createNativeQuery("INSERT INTO contactos VALUES ('null','?','?') ", Usuario.class);
+		logger.info("Ejecutando query de Like. valor 1: "+id1+" y valor 2: "+id2);
+		Query query = entityManager.createNativeQuery("INSERT INTO contactos VALUES ('?','?','?')");
 		query.setParameter(2, id1);
 		query.setParameter(3, id2);
 		

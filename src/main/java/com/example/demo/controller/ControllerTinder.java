@@ -44,13 +44,21 @@ public class ControllerTinder {
 	}
 	
 	@PostMapping("/login")
-	public String loginUser(@ModelAttribute Usuario user, ModelMap model) {
+	public String loginUser(@ModelAttribute ("user") Usuario user, ModelMap model) {
 		if(usuarioService.findById(user.getIdusuario())!=null) {
 			model.addAttribute("user", usuarioService.findById(user.getIdusuario()));
 			return "redirect:/listado";
 		}else{
 			return "redirect:/";
 		}
+	}
+	
+		
+	@GetMapping("/like")
+	public String like() {
+				
+		return "redirect:/listado";
+		
 	}
 	
 	

@@ -7,13 +7,14 @@ import java.util.Locale;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.datos.UsuarioRepository;
+import com.example.demo.datos.GenericRepository;
 import com.example.demo.model.Usuario;
 import com.github.javafaker.Faker;
 
@@ -27,7 +28,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	EntityManager entityManager;
 	
 	@Autowired
-	private UsuarioRepository repository; 
+	private GenericRepository repository; 
 
 	@Override
 	public Usuario create(Usuario user) {
@@ -86,18 +87,26 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 		return listaUsuarios;
 	}
-
+	/*
 	@Override
 	public void like(int id1, int id2) {
 		logger.info("Ejecutando query de Like. valor 1: "+id1+" y valor 2: "+id2);
-		Query query = entityManager.createNativeQuery("INSERT INTO contactos VALUES ('?','?','?')");
+		Query query = entityManager.createNativeQuery("INSERT INTO contactos (idcontacto, fk_idusuario, fk_idusuario2) VALUES (?,?,?)");
+		query.setParameter(1, null);
 		query.setParameter(2, id1);
 		query.setParameter(3, id2);
 		
 		query.executeUpdate();
-	}
+	}*/
 
 	
+	
+	@Override
+    public void like(int id1, int id2) {
+        // TODO Auto-generated method stub
+        logger.info("--- En método like de la clase PerfilRpositoryImpl");
+       // repository.like(id1, id2);
+    }
 	
 	
 

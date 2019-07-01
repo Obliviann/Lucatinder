@@ -38,12 +38,12 @@
   	<td style=font-weight:bold>DisLike</td>
   	</tr>
     
-    <tr th:each= "user : ${listado}">
+    <tr th:each= "users : ${listado}">
     
       <!-- <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td> -->
-      <td style=text-align:left th:text=${user.nombre}>Nombre</td>
-      <td th:text=${user.genero}>Fecha de Nacimiento</td>         
-      <td><a href="/like"><button id="btn-like" class="btn btn-success">♥</button></a></td>
+      <td style=text-align:left th:text=${users.nombre}>Nombre</td>
+      <td th:text=${users.genero}>Fecha de Nacimiento</td>         
+      <td><a th:href="@{/like(id1=${user.idusuario}, id2=${users.idusuario})}"><button id="btn-like" class="btn btn-success">♥</button></a></td>
       <td><button id="btn-dislike" class="btn btn-danger" style="font-weight: bold">X</button></td>
       </div>    
 

@@ -1,11 +1,10 @@
 package com.example.demo.datos;
 
-import java.io.Serializable;
+import org.springframework.stereotype.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.NoRepositoryBean;
+import com.example.demo.model.Usuario;
 
-@NoRepositoryBean
-public interface GenericRepository<T, ID extends Serializable> extends JpaRepository<T, ID> {
+@Repository
+public interface GenericRepository extends GenericRepositoryCustom<Usuario, Integer> {
 
 }

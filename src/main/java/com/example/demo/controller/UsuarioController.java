@@ -47,23 +47,12 @@ public class UsuarioController {
 	}
 	
 	
-	/*@DeleteMapping(path = { "/{idusuario}" })
-	public Usuario delete(@PathVariable("idusuario") int id) {
-		return usuarioService.deleteById(id);
-	}*/
-	
 	
 	@DeleteMapping(path = { "/{idusuario}" })
 	public Usuario delete(@PathVariable("idusuario") int id) {
 		return usuarioService.deleteById(id);
 	}
 
-	/*
-	@GetMapping
-	public List<Usuario> findAll() {
-		return usuarioService.findAll();
-	}*/
-	
 	
 	//Rest para añadir generar los 10 usuarios
 	@GetMapping(path = { "/ten" })
@@ -72,11 +61,17 @@ public class UsuarioController {
 	}
 	
 	
-	@PostMapping
-	public void like(int id1, int id2) {
+	
+	/* HECHO EL 01/07/2019 */
+	@PostMapping("/like")
+	public void like(@RequestBody int id1, @RequestBody int id2) {
 		logger.info("----- Ejecutando query en el servicio REST. Ruta del paquete: controller.UsuarioController.java -----");
 		logger.info("id1 que recibe el REST: "+id1+" -- | -- id2 que recibe el REST: "+id2);
 		usuarioService.like(id1, id2);
+		
 	}
+	
+	
+
 	
 }

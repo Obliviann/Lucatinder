@@ -29,23 +29,40 @@
   <h2 class="subtitulo">Perfiles seleccionados</h2>
   <div class="table-responsive-md">
   <table class="table table-striped">
-    <thead>
+  
+  	<tr>
+  	<td>Nombre</td>
+  	<td>Fecha Nacimiento</td>
+  	<td>Like</td>
+  	<td>DisLike</td>
+  	</tr>
     
-    </thead>
-    <tbody>
-    <c:forEach var="user" items="${userList}" varStatus="status">
-    <tr>
-     <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td>
-      <td>{{user.Nombre}}</td>
-      <td>{{user.Edad}}</td>      
+    <tr th:each= "user : ${listado}">
+    
+      <!-- <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td> -->
+      <td th:text=${user.nombre}>Nombre</td>
+      <td th:text=${user.edad}>Fecha de Nacimiento</td>         
       <td><button class="btn btn-success" (click)=#>♥</button></td>
       <td><button class="btn btn-danger" (click)=# style="font-weight: bold">X</button></td>
-      
+      </div>    
 
     </tr>
-    </c:forEach>
     </tbody>
   </table>
+  
+  <!--  <table>
+   <th:block th:each="user : ${users}">
+      <tr>
+         <td th:text="${user.login}">...</td>
+         <td th:text="${user.name}">...</td>
+      </tr>
+      <tr>
+         <td colspan="2" th:text="${user.address}">...</td>
+      </tr>
+   </th:block>
+</table> -->
+  
+  
   </div>
   </div>
               

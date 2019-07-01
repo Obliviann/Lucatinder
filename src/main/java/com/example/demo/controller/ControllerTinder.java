@@ -47,7 +47,7 @@ public class ControllerTinder {
 	public String loginUser(@ModelAttribute Usuario user, ModelMap model) {
 		if(usuarioService.findById(user.getIdusuario())!=null) {
 			model.addAttribute("user", usuarioService.findById(user.getIdusuario()));
-			return "bienvenida";
+			return "redirect:/listado";
 		}else{
 			return "redirect:/";
 		}

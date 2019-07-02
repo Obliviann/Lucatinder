@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-     <link rel="stylesheet" href="resources/css/estilos.css">
-    <link rel="stylesheet" href="resources/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Inicio</title>
+<link rel="stylesheet" href="resources/css/estilos.css">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+	rel="stylesheet">
 </head>
 <body>
-  <div class="titulo"><p>LucaTinder</p></div>
-  
-  <div class="navbarTinder">
-  <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link text-info" href="#!">Perfil</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-info" href="#!" >Matches</a>
-  </li>
-  </ul>
-  </div>  
-  
-   <div id="grilla">
-   
-    <div class="col-md-4 text-center" style="margin: auto">
-  <h2 class="subtitulo">Perfiles seleccionados</h2>
-  <div class="table-responsive-md">
-  <table class="table table-striped">
-    <thead>
-    
-    </thead>
-    <tbody>
-    <c:forEach var="user" items="${userList}" varStatus="status">
-    <tr>
-     <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td>
-      <td>{{user.Nombre}}</td>
-      <td>{{user.Edad}}</td>      
-      <td><button class="btn btn-success" (click)=#>♥</button></td>
-      <td><button class="btn btn-danger" (click)=# style="font-weight: bold">X</button></td>
-      
+	<div class="titulo">
+		<p>LucaTinder</p>
+	</div>
 
-    </tr>
-    </c:forEach>
-    </tbody>
-  </table>
-  </div>
-  </div>
-              
-  </div>
+	<div class="navbarTinder">
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link text-info" href="#!">Perfil</a>
+			</li>
+			<li class="nav-item"><a class="nav-link text-info" href="#!">Matches</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="grilla">
+
+		<div class="col-md-4 text-center" style="margin: auto">
+			<h2 class="subtitulo">Perfiles seleccionados</h2>
+			<div class="table-responsive-md">
+				<table id="listado" class="table">
+
+					<tr>
+						<td style="font-weight: bold; text-align: left">Nombre</td>
+						<td style="font-weight: bold">Género</td>
+						<td style="font-weight: bold">Like</td>
+						<td style="font-weight: bold">DisLike</td>
+					</tr>
+
+					<tr th:each="users : ${listado}">
+
+						<!-- <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td> -->
+						<td style="text-align: left" th:text=${users.nombre}>Nombre</td>
+						<td th:text=${users.genero}>Fecha de Nacimiento</td>
+						<td><a
+							th:href="@{/like(id1=${user.idusuario}, id2=${users.idusuario})}"><button
+									id="btn-like" class="btn btn-success">♥</button></a></td>
+						<td><button id="btn-dislike" class="btn btn-danger"
+								style="font-weight: bold">X</button></td>
+
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
 </body>
 </html>

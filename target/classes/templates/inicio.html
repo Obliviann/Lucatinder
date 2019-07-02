@@ -24,8 +24,8 @@
 						 </div>
 					</div>
                    <form 
-                   		action="@{/login}" 
-                   		method="get" 
+                   		th:action="@{/login}" 
+                   		method="post" 
                    		name="login"
                    		th:object="${user}">                   		
                    		<!-- PONER EL NOMBRE FINAL DEL MÉTODO --> 

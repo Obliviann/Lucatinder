@@ -27,40 +27,34 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
-	
-	
+
 	@PostMapping
 	public Usuario create(@RequestBody Usuario usuario) {
 		return usuarioService.create(usuario);
 	}
-	
+
 	@GetMapping(path = { "/{idusuario}" })
 	public Usuario findOne(@PathVariable("idusuario") int id) {
 		return usuarioService.findById(id);
 	}
-	
+
 	@PutMapping()
 	public Usuario update(@PathVariable("idusuario") int id, @RequestBody Usuario usuario) {
 		usuario.setIdusuario(id);
 		return usuarioService.update(usuario);
-		
+
 	}
-	
-	
 	
 	@DeleteMapping(path = { "/{idusuario}" })
 	public Usuario delete(@PathVariable("idusuario") int id) {
 		return usuarioService.deleteById(id);
 	}
 
-	
-	//Rest para añadir generar los 10 usuarios
+	// Rest para añadir generar los 10 usuarios
 	@GetMapping(path = { "/ten" })
 	public List<Usuario> generateTen() {
 		return usuarioService.generateTen();
 	}
-	
-	
 	
 	/* HECHO EL 01/07/2019 */
 	@PostMapping("/like")
@@ -70,8 +64,5 @@ public class UsuarioController {
 		usuarioService.like(id1, id2);
 		
 	}
-	
-	
-
 	
 }

@@ -175,4 +175,24 @@ public class UsuarioServiceImpl implements UsuarioService {
 				.setParameter(1, null).setParameter(2, id1).setParameter(3, id2).executeUpdate();
 	}
 
+	@Override
+	public List<Usuario> verPerfil(int id) {
+		
+		List <Usuario> listaUsuario = new ArrayList<Usuario>();
+		
+		listaUsuario = entityManager
+				.createNativeQuery("");
+		
+		return listaUsuario;
+		
+		
+		public List<Usuario> verMatches(int id) {
+			List <Usuario> matches= new ArrayList<Usuario>();
+			matches= entityManager
+						.createNativeQuery("SELECT idusuario2 FROM lucatinder.matches WHERE idusuario LIKE : id1 OR idusuario2 LIKE : id1")
+						.setParameter("id1", id).getResultList();
+			return matches;
+		}
+	}
+
 }

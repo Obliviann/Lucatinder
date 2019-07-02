@@ -39,8 +39,9 @@ public class ControllerTinder {
     }
     
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute Usuario user) {
+    public String saveUser(@ModelAttribute Usuario user, ModelMap model) {
         logger.info("RegistroUsuario");
+        model.addAttribute("user", user);
         usuarioService.create(user);
         return "redirect:/listado";
     }
@@ -75,6 +76,11 @@ public class ControllerTinder {
         model.addAttribute("user", usuarioService.findById(id1));
         model.addAttribute("listado", usuarioService.findContactos(id1));
         return "bienvenida";
-    } 
+    }
+    
+    @GetMapping ("/matches")
+    public String verMatches() {
+    	return "matches";
+    }
     
 }

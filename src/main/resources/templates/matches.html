@@ -12,7 +12,7 @@
 
 <body>
 	<div class="titulo">
-		<a><p>LucaTinder</p></a>
+		<a href="/listado" style="text-decoration:none"><p>LucaTinder</p></a>
 	</div>
 
 	<div class="navbarTinder">
@@ -37,7 +37,7 @@
 						<td style="font-weight: bold">Chat</td>
 					</tr>
 
-					<tr th:each="users : ${listado}">
+					<tr th:each="users : ${matches}">
 
 						<!-- <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td> -->
 						<td style="text-align: left" th:text=${users.nombre}>Nombre</td>

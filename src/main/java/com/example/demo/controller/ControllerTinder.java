@@ -8,7 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,10 +30,10 @@ public class ControllerTinder {
     }
     
     @RequestMapping("/listado")
-    public String listado(@ModelAttribute("user") Usuario user ,ModelMap model) {
+    public String listado(@RequestParam("id") int id ,ModelMap model) {
         logger.info("En el listado");
-        model.addAttribute("user", user);
-        model.addAttribute("listado", usuarioService.findContactos(user.getIdusuario()));
+        model.addAttribute("user", usuarioService.findById(id));
+        model.addAttribute("listado", usuarioService.findContactos(id));
         return "bienvenida";
     }
     
@@ -83,4 +82,9 @@ public class ControllerTinder {
     	return "matches";
     }
     
+    @GetMapping ("/perfil")
+    public String verPerfil(@RequestParam("id") int id, ModelMap model) {
+    	model.addAttribute("user", usuarioService.findById(id));
+    	return "perfil";
+    }
 }

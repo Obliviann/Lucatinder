@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+<link rel="stylesheet" href="resources/css/estilos.css">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+	rel="stylesheet">
+</head>
+
+<body>
+	<div class="titulo">
+		<a href="/listado"><p>LucaTinder</p></a>
+	</div>
+
+	<div class="navbarTinder">
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+				<form method="POST" th:action="@{/listado}">
+					<input type="hidden" name="id" id="personId"
+						th:value="${user.idusuario}" />
+					<button type="submit" name="submit" value="value" id="btn-like"
+						class="btn btn-link">Inicio</button>
+				</form>
+			</li>
+		</ul>
+	</div>
+
+	<div id="grilla">
+
+		<div class="col-md-4 text-center" style="margin: auto">
+			<h2 class="subtitulo">Perfil</h2>
+			<div class="table-responsive-md">
+				<table id="usuario" class="table">
+					<tr>
+						<td colspan="2"><img src="resources/img/user.png"
+							height="450px" /></td>
+					</tr>
+					<tr>
+						<td>Nombre</td>
+						<td th:text="${user.nombre}"></td>
+					</tr>
+					<tr>
+						<td>Genero</td>
+						<td th:text="${user.genero}"></td>
+					</tr>
+					<tr>
+						<td>Fecha de nacimiento</td>
+						<td th:text="${user.edad}"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

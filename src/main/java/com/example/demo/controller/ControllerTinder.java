@@ -76,11 +76,11 @@ public class ControllerTinder {
 		return "bienvenida";
 	}
 
-	@GetMapping("/matches")
-	public String verMatches(@ModelAttribute("user") Usuario user, ModelMap model) {
+	@PostMapping("/matches")
+	public String verMatches(@RequestParam("id") int id, ModelMap model) {
 		logger.info("-----------En MATCHES");
-		model.addAttribute("user", user);
-		model.addAttribute("matches", usuarioService.verMatches(user.getIdusuario()));
+		model.addAttribute("user", usuarioService.findById(id));
+		model.addAttribute("matches", usuarioService.verMatches(id));
 		return "matches";
 	}
 	

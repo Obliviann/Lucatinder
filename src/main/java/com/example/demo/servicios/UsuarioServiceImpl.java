@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.datos.GenericRepository;
+import com.example.demo.datos.UsuarioRepository;
 import com.example.demo.model.Usuario;
 import com.github.javafaker.Faker;
 
@@ -28,7 +28,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	EntityManager entityManager;
 	
 	@Autowired
-	private GenericRepository repository; 
+	private UsuarioRepository repository; 
 
 	@Override
 	public Usuario create(Usuario user) {
@@ -102,12 +102,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 	
 	
 	@Override
+	@Transactional
     public void like(int id1, int id2) {
         // TODO Auto-generated method stub
         logger.info("--- En método like de la clase PerfilRpositoryImpl");
-       // repository.like(id1, id2);
+        entityManager.createNativeQuery("INSERT INTO lucatinder.contactos (idcontacto, fk_idusuario, fk_idusuario2) VALUES (?,?,?)")
+        .setParameter(1, null)
+        .setParameter(2, id1)
+        .setParameter(3, id2)
+        .executeUpdate();
     }
 	
-	
+
 
 }

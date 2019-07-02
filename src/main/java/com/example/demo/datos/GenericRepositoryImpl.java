@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.servicios.UsuarioServiceImpl;
 
-@Repository
-@Transactional
-public class GenericRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements GenericRepositoryCustom<T, ID> {
+
+public class GenericRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements GenericRepository<T, ID> {
 
 	private static final Logger logger = LoggerFactory.getLogger(GenericRepositoryImpl.class);
 	private final EntityManager entityManager;
@@ -27,15 +26,6 @@ public class GenericRepositoryImpl<T, ID extends Serializable> extends SimpleJpa
 		this.entityManager = entityManager;
 	}
 	
-	/*@Override
-    public void like(int id1, int id2) {
-        // TODO Auto-generated method stub
-        logger.info("--- En método like de la clase PerfilRpositoryImpl");
-        entityManager.createNativeQuery("INSERT INTO lucatinder.contactos (idcontacto, fk_idusuario, fk_idusuario2) VALUES (?,?,?)")
-          .setParameter(1, null)
-          .setParameter(2, id1)
-          .setParameter(3, id2)
-          .executeUpdate();
-    }*/
+	
 
 }

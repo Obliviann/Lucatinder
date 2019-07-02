@@ -24,4 +24,6 @@ public interface UsuarioService {
 	
 	void dislike(int id1, int id2);
 	
+	List<Usuario> verMatches(int id1);
+	
 }

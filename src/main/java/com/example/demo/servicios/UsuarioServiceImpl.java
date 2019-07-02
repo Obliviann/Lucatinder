@@ -99,7 +99,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 		matches= entityManager
 					.createNativeQuery("SELECT idusuario2 FROM lucatinder.matches WHERE idusuario LIKE : id1 OR idusuario2 LIKE : id1")
 					.setParameter("id1", id).getResultList();
-		
+		return matches;
 	}
 
 	@Override

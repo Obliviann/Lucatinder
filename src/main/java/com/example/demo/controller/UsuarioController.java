@@ -73,4 +73,13 @@ public class UsuarioController {
 		
 	}
 	
+	public List<Usuario> verMatches(int id1){
+		logger.info("---- Ejecutando query para ver los matches en el REST.");
+		logger.info("el id que buscará en la query es: "+id1);
+		
+		
+		return usuarioService.verMatches(id1);
+		
+	}
+	
 }

@@ -25,6 +25,14 @@
 						class="btn btn-link">Inicio</button>
 				</form>
 			</li>
+			<li class="nav-item">
+			<form method="POST" th:action="@{/matches}">
+					<input type="hidden" name="id" id="personId"
+						th:value="${user.idusuario}" />
+					<button type="submit" name="submit" value="value" id="btn-like"
+						class="btn btn-link">Matches</button>
+				</form>
+			</li>
 		</ul>
 	</div>
 
@@ -49,6 +57,14 @@
 					<tr>
 						<td>Fecha de nacimiento</td>
 						<td th:text="${user.edad}"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<form method="POST" th:action="@{/logout}">
+								<button type="submit" name="submit" value="value" id="btn-like"
+									class="btn btn-danger">Cerrar sesión</button>
+							</form>
+						</td>
 					</tr>
 				</table>
 			</div>

@@ -17,9 +17,21 @@
 
 	<div class="navbarTinder">
 		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link text-info" href="/listado">Inicio</a>
+			<li class="nav-item">
+				<form method="POST" th:action="@{/listado}">
+					<input type="hidden" name="id" id="personId"
+						th:value="${user.idusuario}" />
+					<button type="submit" name="submit" value="value" id="btn-like"
+						class="btn btn-link">Inicio</button>
+				</form>
 			</li>
-			<li class="nav-item"><a class="nav-link text-info" href="#!">Perfil</a>
+			<li class="nav-item">
+				<form method="POST" th:action="@{/perfil}">
+					<input type="hidden" name="id" id="personId"
+						th:value="${user.idusuario}" />
+					<button type="submit" name="submit" value="value" id="btn-like"
+						class="btn btn-link">Perfil</button>
+				</form>
 			</li>
 		</ul>
 	</div>

@@ -29,10 +29,10 @@ public class ControllerTinder {
 	}
 
 	@RequestMapping("/listado")
-	public String listado(@ModelAttribute("user") Usuario user, ModelMap model) {
+	public String listado(@RequestParam("id") int id, ModelMap model) {
 		logger.info("En el listado");
-		model.addAttribute("user", user);
-		model.addAttribute("listado", usuarioService.findContactos(user.getIdusuario()));
+		model.addAttribute("user", usuarioService.findById(id));
+		model.addAttribute("listado", usuarioService.findContactos(id));
 		return "bienvenida";
 	}
 
@@ -84,10 +84,15 @@ public class ControllerTinder {
 		return "matches";
 	}
 	
-	@GetMapping ("/perfil")
+	@PostMapping ("/perfil")
     public String verPerfil(@RequestParam("id") int id, ModelMap model) {
     	model.addAttribute("user", usuarioService.findById(id));
     	return "perfil";
     }
+	
+	@PostMapping ("/logout")
+	public String logout() {
+		return "redirect:/";
+	}
 
 }

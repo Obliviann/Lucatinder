@@ -1,7 +1,7 @@
 
 target/
 target/classes/META-INF/MANIFEST.MF
-
+target/classes/META-INF/maven/com.example/Proyecto02-Lucatinder/pom.properties
 LucaTinder/target/
 
 # !.mvn/wrapper/maven-wrapper.jar
@@ -27,7 +27,7 @@ LucaTinder/target/
 
 # .sts4-cache
 
-.class
+# .class
 
 
 ### IntelliJ IDEA ###
@@ -58,7 +58,3 @@ LucaTinder/target/
 ### VS Code ###
 
 # .vscode/
-target/classes/META-INF/maven/com.example/Proyecto02-Lucatinder/pom.properties
-target/classes/META-INF/maven/com.example/Proyecto02-Lucatinder/pom.properties
-target/classes/META-INF/maven/com.example/Proyecto02-Lucatinder/pom.properties
-target/classes/META-INF/MANIFEST.MF

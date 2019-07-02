@@ -14,8 +14,6 @@ public interface UsuarioService {
 	
 	List<Usuario> findContactos(int id);
 
-	public List<Usuario> verMatches(int id);
-
 	Usuario findById(int id);
 
 	Usuario update(Usuario user);

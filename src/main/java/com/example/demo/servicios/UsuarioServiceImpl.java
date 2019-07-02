@@ -7,6 +7,7 @@ import java.util.Locale;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,10 +96,20 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 	
 	public List<Usuario> verMatches(int id) {
-		List <Usuario> matches= new ArrayList<Usuario>();
-		matches= entityManager
-					.createNativeQuery("SELECT idusuario2 FROM lucatinder.matches WHERE idusuario LIKE : id1 OR idusuario2 LIKE : id1")
-					.setParameter("id1", id).getResultList();
+		List <Integer> idMatches= new ArrayList<Integer>();
+		List <Usuario> matches = new ArrayList<Usuario>();
+		idMatches = entityManager
+					.createNativeQuery("SELECT idusuario FROM lucatinder.matches WHERE idusuario2 LIKE :id1 UNION SELECT idusuario2 FROM lucatinder.matches WHERE idusuario LIKE :id2")
+					.setParameter("id1", id).setParameter("id2", id).getResultList();
+		
+		logger.info("-----------idMatches.Size" + idMatches.size());
+		logger.info("" + id);
+		for(int i=0;i<idMatches.size();i++) {
+			logger.info("-------IDMATCHES" + idMatches.get(i));
+			Usuario user = findById(idMatches.get(i));
+			matches.add(user);
+		}
+		
 		return matches;
 	}
 

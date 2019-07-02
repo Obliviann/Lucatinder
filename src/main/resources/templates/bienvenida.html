@@ -17,7 +17,7 @@
 
 	<div class="navbarTinder">
 		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link text-info" href="#!">Perfil</a>
+			<li class="nav-item"><a class="nav-link text-info" th:href="@{'/perfil?id=' + ${user.idusuario}}">Perfil</a>
 			</li>
 			<li class="nav-item"><a class="nav-link text-info" href="/matches">Matches</a>
 			</li>

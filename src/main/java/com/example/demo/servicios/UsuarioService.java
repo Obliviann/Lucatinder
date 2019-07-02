@@ -26,6 +26,4 @@ public interface UsuarioService {
 	
 	List<Usuario> verMatches(int id1);
 	
-	List<Usuario> verPerfil(int id);
-	
 }

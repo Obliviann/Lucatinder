@@ -7,6 +7,7 @@ import java.util.Locale;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,19 +87,32 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 		return listaUsuarios;
 	}
-
+	/*
 	@Override
 	public void like(int id1, int id2) {
 		logger.info("Ejecutando query de Like. valor 1: "+id1+" y valor 2: "+id2);
-		Query query = entityManager.createNativeQuery("INSERT INTO contactos VALUES ('?','?','?')");
+		Query query = entityManager.createNativeQuery("INSERT INTO contactos (idcontacto, fk_idusuario, fk_idusuario2) VALUES (?,?,?)");
+		query.setParameter(1, null);
 		query.setParameter(2, id1);
 		query.setParameter(3, id2);
 		
 		query.executeUpdate();
-	}
+	}*/
 
 	
 	
+	@Override
+	@Transactional
+    public void like(int id1, int id2) {
+        // TODO Auto-generated method stub
+        logger.info("--- En método like de la clase PerfilRpositoryImpl");
+        entityManager.createNativeQuery("INSERT INTO lucatinder.contactos (idcontacto, fk_idusuario, fk_idusuario2) VALUES (?,?,?)")
+        .setParameter(1, null)
+        .setParameter(2, id1)
+        .setParameter(3, id2)
+        .executeUpdate();
+    }
 	
+
 
 }

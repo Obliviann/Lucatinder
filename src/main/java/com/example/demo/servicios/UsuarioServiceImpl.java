@@ -52,6 +52,48 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
+	public List<Usuario> findContactos(int id) {
+		// TODO Auto-generated method stub
+
+		logger.info("-----Dentro, hay mas de un dato");
+		List<Usuario> users = new ArrayList<Usuario>();
+		users = repository.findAll();
+
+		List<Integer> list = new ArrayList<Integer>();
+		list = entityManager
+				.createNativeQuery("SELECT fk_idusuario2 FROM lucatinder.descartes WHERE fk_idusuario LIKE :id1")
+				.setParameter("id1", id).getResultList();
+
+		for (int i = 0; i < users.size(); i++) {
+			for (int j = 0; j < list.size(); j++) {
+				if (users.get(i).getIdusuario() == list.get(j)) {
+					users.remove(i);
+				}
+			}
+		}
+
+		List<Integer> list2 = new ArrayList<Integer>();
+		list2 = entityManager
+				.createNativeQuery("SELECT fk_idusuario2 FROM lucatinder.contactos WHERE fk_idusuario LIKE :id1")
+				.setParameter("id1", id).getResultList();
+
+		for (int k = 0; k < users.size(); k++) {
+			for (int l = 0; l < list2.size(); l++) {
+				if (users.get(k).getIdusuario() == list2.get(l)) {
+					users.remove(k);
+				}
+			}
+		}
+
+		if (users.size() >= 1) {
+			return users;
+		} else {
+			return generateTen();
+		}
+
+	}
+
+	@Override
 	public Usuario findById(int id) {
 		// TODO Auto-generated method stub
 		return repository.findById(id).orElse(null);
@@ -94,6 +136,33 @@ public class UsuarioServiceImpl implements UsuarioService {
 		entityManager
 				.createNativeQuery(
 						"INSERT INTO lucatinder.contactos (idcontacto, fk_idusuario, fk_idusuario2) VALUES (?,?,?)")
+				.setParameter(1, null).setParameter(2, id1).setParameter(3, id2).executeUpdate();
+
+		List<Integer> list = new ArrayList<Integer>();
+		list = entityManager
+				.createNativeQuery("SELECT fk_idusuario FROM lucatinder.contactos WHERE fk_idusuario2 LIKE :id1")
+				.setParameter("id1", id1).getResultList();
+
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i)==id2) {
+				logger.info(""+id1);
+				entityManager
+				.createNativeQuery(
+						"INSERT INTO lucatinder.matches (idmatch, idusuario, idusuario2) VALUES (?,?,?)")
+				.setParameter(1, null).setParameter(2, id1).setParameter(3, id2).executeUpdate();
+			}
+		}
+
+	}
+
+	@Override
+	@Transactional
+	public void dislike(int id1, int id2) {
+		// TODO Auto-generated method stub
+		logger.info("--- En método like de la clase PerfilRpositoryImpl");
+		entityManager
+				.createNativeQuery(
+						"INSERT INTO lucatinder.descartes (iddescarte, fk_idusuario, fk_idusuario2) VALUES (?,?,?)")
 				.setParameter(1, null).setParameter(2, id1).setParameter(3, id2).executeUpdate();
 	}
 

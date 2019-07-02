@@ -43,14 +43,28 @@
 						<!-- <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td> -->
 						<td style="text-align: left" th:text=${users.nombre}>Nombre</td>
 						<td th:text=${users.genero}>Fecha de Nacimiento</td>
-						<td><a
-							th:href="@{/like(id1=${user.idusuario}, id2=${users.idusuario})}"><button
-									id="btn-like" class="btn btn-success">♥</button></a></td>
-						<td><button id="btn-dislike" class="btn btn-danger"
-								style="font-weight: bold">X</button></td>
-
+						<td>
+							<form method="POST" th:action="@{/like}">
+								<input type="hidden" name="id1" id="personId"
+									th:value="${user.idusuario}" /> 
+								<input type="hidden" name="id2" id="personId2" 
+									th:value="${users.idusuario}" />
+								<button type="submit" name="submit" value="value" id="btn-like"
+									class="btn btn-success">♥</button>
+							</form>
+						</td>
+						<td>
+							<form method="POST" th:action="@{/dislike}">
+								<input type="hidden" name="id1" id="personId"
+									th:value="${user.idusuario}" /> 
+								<input type="hidden"
+									name="id2" id="personId" th:value="${users.idusuario}" />
+								<button type="submit" name="submit" value="value" id="btn-dislike"
+									class="btn btn-danger">X</button>
+							</form>
+						</td>
 					</tr>
-					</tbody>
+					
 				</table>
 			</div>
 		</div>

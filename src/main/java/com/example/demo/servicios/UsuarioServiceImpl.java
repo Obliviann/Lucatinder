@@ -93,6 +93,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 		}
 
 	}
+	
+	public List<Usuario> verMatches(int id) {
+		List <Usuario> matches= new ArrayList<Usuario>();
+		matches= entityManager
+					.createNativeQuery("SELECT idusuario2 FROM lucatinder.matches WHERE idusuario LIKE : id1 OR idusuario2 LIKE : id1")
+					.setParameter("id1", id).getResultList();
+		
+	}
 
 	@Override
 	public Usuario findById(int id) {

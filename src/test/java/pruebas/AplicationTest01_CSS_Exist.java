@@ -14,26 +14,38 @@ import org.springframework.test.web.servlet.MockMvc;
 
 /**
  * 
- * @author Marian Drozd 02/07/2019 18:46 
+ * @author Marian Drozd 02/07/2019 18:46
  * @version 1.0.0
  */
-
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = { AplicationTest01_CSS_Exist.class })
 @AutoConfigureMockMvc
 public class AplicationTest01_CSS_Exist {
 
-	@Autowired 
-	private MockMvc mockMvc;
-	
-	@Test
-	public void comprobar_css() throws Exception {
-		
-		this.mockMvc
-		.perform(get("/css/estilos.css"))
-		.andDo(print())
-		.andExpect(status().isOk());
-	}
-	
-	
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    public void shouldReturnCssFile() throws Exception {
+
+        this.mockMvc.perform(get("/resources/css/estilos.css")).andDo(print()).andExpect(status().isOk());
+        // Si quieres que falle, cambia el nombre del CSS
+    }
+
 }
+/*@RunWith(SpringRunner.class)
+@SpringBootTest(classes = { AplicationTest01_CSS_Exist.class })
+@AutoConfigureMockMvc
+public class AplicationTest01_CSS_Exist {
+
+	@Autowired
+	private MockMvc mockMvc;
+
+	@Test
+	public void shouldReturnCssFile() throws Exception {
+
+		this.mockMvc.perform(get("resources/css/estilos.css")).andDo(print()).andExpect(status().isOk());
+		// Si quieres que falle, cambia el nombre del CSS
+	}
+
+}*/

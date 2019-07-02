@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-     <div class="titulo"><p>LucaTinder</p></div>
+     <div class="titulo">
+     <a href="/listado"><p>LucaTinder</p></a>
+     </div>
    
         <!-- ------------ INICIAR SESIÓN ------------- -->
    
@@ -24,15 +26,15 @@
 						 </div>
 					</div>
                    <form 
-                   		action="@{/login}" 
-                   		method="get" 
+                   		th:action="@{/login}" 
+                   		method="post" 
                    		name="login"
                    		th:object="${user}">                   		
                    		<!-- PONER EL NOMBRE FINAL DEL MÉTODO --> 
                    		
                    		
                            <div class="form-group">
-                           	  <input type="text" name="text" th:field="*{idusuario}" class="form-control" aria-describedby="text" placeholder="Ingrese ID de usuario" style="margin: auto">
+                           	  <input type="number" name="text" th:field="*{idusuario}" class="form-control" placeholder="Ingrese ID de usuario" style="margin: auto" min="1505">
                            </div>
                                                       
                            <div class="col-md-12 text-center ">
@@ -61,17 +63,21 @@
                         
                         <form 
                         	th:action="@{/save}"
-                        	method="get" 
+                        	method="post" 
                         	name="registration"
                         	th:object="${user}">                        	
                         	<!-- PONER EL NOMBRE FINAL DEL MÉTODO -->                         	                 
                         
                            <div class="form-group">
-                              <input type="text"  name="name" th:field="*{Nombre}" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese nombre completo" style="margin: auto">
+                              <input type="text"  name="name" th:field="*{nombre}" class="form-control" aria-describedby="" placeholder="Ingrese nombre completo" style="margin: auto">
                            </div>
                            
                            <div class="form-group">
-                              <input type="text" name="email" th:field="*{Edad}"  class="form-control" aria-describedby="emailHelp" placeholder="Ingrese Edad" style="margin: auto">
+                              <input type="text" name="edad" th:field="*{edad}"  class="form-control" aria-describedby="" placeholder="Ingrese fecha de nacimiento (aaaa/mm/dd)" style="margin: auto">
+                           </div>
+                           
+                           <div class="form-group">
+                              <input type="text" name="genero" th:field="*{genero}"  class="form-control" aria-describedby="" placeholder="Ingrese género (h/m/a)" style="margin: auto">
                            </div>
                           
                            <div class="col-md-12 text-center mb-3">

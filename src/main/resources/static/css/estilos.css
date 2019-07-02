@@ -5,7 +5,14 @@
     font-weight: bold;
     text-align: center;
     margin-top: 40px;
-    margin-bottom: 40px
+    margin-bottom: 40px;
+    text-decoration: none;
+    
+}
+
+a{
+	text-decoration: none;
+	
 }
 
 .subtitulo{
@@ -40,3 +47,25 @@ body{
 
 .tabla{
     }
+    
+#btn-like {
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#btn-like:hover{
+	opacity:0.2;
+}
+
+#btn-dislike {
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}

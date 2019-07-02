@@ -73,14 +73,24 @@ public class UsuarioController {
 		
 	}
 	
-	/*
-	@GetMapping()
+	
+	@GetMapping("/matches")
 	public List<Usuario> verMatches(@PathVariable("idusuario") int id1){
 		logger.info("---- Ejecutando query para ver los matches en el REST.");
 		logger.info("el id que buscará en la query es: "+id1);
 		
 		return usuarioService.verMatches(id1);
 		
-	} */
+	} 
+	
+	@GetMapping("/perfil/")
+	public Usuario verPerfil(int id1) {
+		
+		logger.info("---- ejecutando REST verPerfil.... Inicio del método ----");
+		logger.info("el id que le pasas por parametros es: "+id1);
+		return usuarioService.findById(id1);
+		
+		
+	}
 	
 }

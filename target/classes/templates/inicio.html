@@ -2,95 +2,105 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>LucaTinder</title>
-     <link rel="stylesheet" href="resources/css/estilos.css">
-    <link rel="stylesheet" href="resources/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>LucaTinder</title>
+<link rel="stylesheet" href="resources/css/estilos.css">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+	rel="stylesheet">
 </head>
 <body>
-     <div class="titulo">
-     <a href="/listado"><p>LucaTinder</p></a>
-     </div>
-   
-        <!-- ------------ INICIAR SESIÓN ------------- -->
-   
-    <div class="container">
-        <div class="row">
+	<div class="titulo">
+		<a href="/listado"><p>LucaTinder</p></a>
+	</div>
+
+	<!-- ------------ INICIAR SESIÓN ------------- -->
+
+	<div class="container">
+		<div class="row">
 			<div class="col-md-5 mx-auto">
-			<div id="first">
-				<div class="myform form ">
-					 <div class="logo mb-3">
-						 <div class="col-md-12 text-center">
-							<h1>Iniciar sesión</h1>
-						 </div>
+				<div id="first">
+					<div class="myform form ">
+						<div class="logo mb-3">
+							<div class="col-md-12 text-center">
+								<h1>Iniciar sesión</h1>
+							</div>
+						</div>
+						<form th:action="@{/login}" method="post" name="login"
+							th:object="${user}">
+							<!-- PONER EL NOMBRE FINAL DEL MÉTODO -->
+
+
+							<div class="form-group">
+								<input type="number" name="text" th:field="*{idusuario}"
+									class="form-control" placeholder="Ingrese ID de usuario"
+									style="margin: auto" min="1505">
+							</div>
+
+							<div class="col-md-12 text-center ">
+								<button type="submit"
+									class=" btn btn-block mybtn btn-primary tx-tfm">Entrar</button>
+							</div>
+
+							<!-- --------------------------------------- -->
+
+							<div class="form-group" style="margin-bottom: 40px">
+								<br>
+								<p class="text-center">¿No tienes una cuenta aún?</p>
+							</div>
+						</form>
+
 					</div>
-                   <form 
-                   		th:action="@{/login}" 
-                   		method="post" 
-                   		name="login"
-                   		th:object="${user}">                   		
-                   		<!-- PONER EL NOMBRE FINAL DEL MÉTODO --> 
-                   		
-                   		
-                           <div class="form-group">
-                           	  <input type="number" name="text" th:field="*{idusuario}" class="form-control" placeholder="Ingrese ID de usuario" style="margin: auto" min="1505">
-                           </div>
-                                                      
-                           <div class="col-md-12 text-center ">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Entrar</button>
-                           </div>                                  
-                                                                       
-        <!-- --------------------------------------- -->                  
-                           
-                           <div class="form-group" style="margin-bottom: 40px"><br>
-                              <p class="text-center">¿No tienes una cuenta aún?</p>
-                           </div>
-                        </form>
-                 
+				</div>
+
+				<!-- ------------ CREAR CUENTA ------------- -->
+
+				<div id="second">
+					<div class="myform form ">
+						<div class="logo mb-3">
+							<div class="col-md-12 text-center">
+								<h1>Crear cuenta</h1>
+							</div>
+						</div>
+
+						<form th:action="@{/save}" method="post" name="registration"
+							th:object="${user}">
+							<!-- PONER EL NOMBRE FINAL DEL MÉTODO -->
+
+							<div class="form-group">
+								<input type="text" name="name" th:field="*{nombre}"
+									class="form-control" aria-describedby=""
+									placeholder="Ingrese nombre completo" style="margin: auto">
+							</div>
+
+							<div class="form-group">
+								<input type="text" name="edad" th:field="*{edad}"
+									class="form-control" aria-describedby=""
+									placeholder="Ingrese fecha de nacimiento (aaaa/mm/dd)"
+									style="margin: auto">
+							</div>
+
+							<div class="form-group">
+								<input type="text" name="genero" th:field="*{genero}"
+									class="form-control" aria-describedby=""
+									placeholder="Ingrese género (h/m/a)" style="margin: auto">
+							</div>
+
+							<div class="col-md-12 text-center mb-3">
+								<div id="btn-center"></div>
+								<button type="submit"
+									class=" btn btn-block mybtn btn-primary tx-tfm">Crear
+									cuenta</button>
+							</div>
+
+
+						</form>
+					</div>
 				</div>
 			</div>
-          
-        <!-- ------------ CREAR CUENTA ------------- -->
-          
-			  <div id="second">
-			      <div class="myform form ">
-                        <div class="logo mb-3">
-                           <div class="col-md-12 text-center">
-                              <h1 >Crear cuenta</h1>
-                           </div>
-                        </div>
-                        
-                        <form 
-                        	th:action="@{/save}"
-                        	method="post" 
-                        	name="registration"
-                        	th:object="${user}">                        	
-                        	<!-- PONER EL NOMBRE FINAL DEL MÉTODO -->                         	                 
-                        
-                           <div class="form-group">
-                              <input type="text"  name="name" th:field="*{nombre}" class="form-control" aria-describedby="" placeholder="Ingrese nombre completo" style="margin: auto">
-                           </div>
-                           
-                           <div class="form-group">
-                              <input type="text" name="edad" th:field="*{edad}"  class="form-control" aria-describedby="" placeholder="Ingrese fecha de nacimiento (aaaa/mm/dd)" style="margin: auto">
-                           </div>
-                           
-                           <div class="form-group">
-                              <input type="text" name="genero" th:field="*{genero}"  class="form-control" aria-describedby="" placeholder="Ingrese género (h/m/a)" style="margin: auto">
-                           </div>
-                          
-                           <div class="col-md-12 text-center mb-3">
-                              <div id="btn-center"></div><button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Crear cuenta</button>
-                           </div>
-                          
-                            
-                        </form>
-                     </div>
-			</div>
 		</div>
-      </div>   
-    </div>
-    
+	</div>
+
 </body>
 </html>

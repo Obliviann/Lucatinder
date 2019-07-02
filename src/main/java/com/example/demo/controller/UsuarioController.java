@@ -65,4 +65,12 @@ public class UsuarioController {
 		
 	}
 	
+	@PostMapping("/dislike")
+	public void dislike(@RequestBody int id1, @RequestBody int id2) {
+		logger.info("----- Ejecutando query en el servicio REST. Ruta del paquete: controller.UsuarioController.java -----");
+		logger.info("id1 que recibe el REST: "+id1+" -- | -- id2 que recibe el REST: "+id2);
+		usuarioService.like(id1, id2);
+		
+	}
+	
 }

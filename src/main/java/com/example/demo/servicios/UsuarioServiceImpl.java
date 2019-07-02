@@ -55,7 +55,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public List<Usuario> findContactos(int id) {
 		// TODO Auto-generated method stub
 
-		logger.info("-----Dentro, hay mas de un dato");
 		List<Usuario> users = new ArrayList<Usuario>();
 		users = repository.findAll();
 
@@ -66,7 +65,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 		for (int i = 0; i < users.size(); i++) {
 			for (int j = 0; j < list.size(); j++) {
+				logger.info(""+list.get(j));
 				if (users.get(i).getIdusuario() == list.get(j)) {
+					logger.info(""+users.get(i));
 					users.remove(i);
 				}
 			}

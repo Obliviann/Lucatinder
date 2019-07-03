@@ -69,11 +69,16 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return user;
 	}//Cierre del Método
 
+	/**
+     * Método que listará todos los datos de la tabla que seleccione.
+     * 
+     * @return repository . Retorna los valores de una tabla entera
+     * @version 1
+     */
 	@Override
 	public List<Usuario> findAll() {
-		// TODO Auto-generated method stub
 		return repository.findAll();
-	}
+	}//Cierre del Método
 
 	@Override
 	public List<Usuario> findContactos(int id) {

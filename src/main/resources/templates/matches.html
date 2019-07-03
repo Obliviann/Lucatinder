@@ -53,7 +53,7 @@
 
 						<!-- <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td> -->
 						<td style="text-align: left" th:text=${users.nombre}>Nombre</td>
-						<td th:text=${users.genero}>Fecha de Nacimiento</td>
+						<td th:text=${users.genero}>Género</td>
 						<td>
 							<form method="POST" th:action="@{/like}">
 								<input type="hidden" name="id1" id="personId"

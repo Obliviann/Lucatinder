@@ -7,7 +7,6 @@ import java.util.Locale;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -165,7 +164,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 		for (int i = 0; i < list.size(); i++) {
 			if(list.get(i)==id2) {
-				logger.info(""+id1);
+				logger.info("-----HAY MATCH CON EL ID "+id1);
 				entityManager
 				.createNativeQuery(
 						"INSERT INTO lucatinder.matches (idmatch, idusuario, idusuario2) VALUES (?,?,?)")

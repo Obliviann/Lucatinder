@@ -38,7 +38,7 @@ public class UsuarioController {
 		return usuarioService.findById(id);
 	}
 
-	@PutMapping()
+	@PutMapping(path = {"/{idusuario}"})
 	public Usuario update(@PathVariable("idusuario") int id, @RequestBody Usuario usuario) {
 		usuario.setIdusuario(id);
 		return usuarioService.update(usuario);
@@ -57,8 +57,8 @@ public class UsuarioController {
 	}
 	
 	/* HECHO EL 01/07/2019 */
-	@PostMapping("/like")
-	public void like(@RequestBody int id1, @RequestBody int id2) {
+	@PutMapping(path = "/like/{id1}/{id2}")
+	public void like(@PathVariable int id1, @PathVariable int id2) {
 		logger.info("----- Ejecutando query en el servicio REST. Ruta del paquete: controller.UsuarioController.java -----");
 		logger.info("id1 que recibe el REST: "+id1+" -- | -- id2 que recibe el REST: "+id2);
 		usuarioService.like(id1, id2);
@@ -74,7 +74,7 @@ public class UsuarioController {
 	}
 	
 	
-	@GetMapping("/matches")
+	@GetMapping(path = "/matches/{idusuario}")
 	public List<Usuario> verMatches(@PathVariable("idusuario") int id1){
 		logger.info("---- Ejecutando query para ver los matches en el REST.");
 		logger.info("el id que buscará en la query es: "+id1);
@@ -82,15 +82,5 @@ public class UsuarioController {
 		return usuarioService.verMatches(id1);
 		
 	} 
-	
-	@GetMapping("/perfil/")
-	public Usuario verPerfil(int id1) {
-		
-		logger.info("---- ejecutando REST verPerfil.... Inicio del método ----");
-		logger.info("el id que le pasas por parametros es: "+id1);
-		return usuarioService.findById(id1);
-		
-		
-	}
 	
 }

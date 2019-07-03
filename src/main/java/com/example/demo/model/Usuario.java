@@ -36,6 +36,7 @@ public class Usuario {
 		this.descripcion = descripcion;
 	}
 
+	
 	public Usuario(String nombre, String genero, Date edad) {
 		super();
 		this.nombre = nombre;

@@ -1,10 +1,8 @@
 package com.example.demo;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +28,7 @@ public class AplicationTest01_Exists_CSS {
 	public void shouldReturnCssFile() throws Exception {
 
 		this.mockMvc.perform(get("/resources/css/estilos.css")).andDo(print()).andExpect(status().isOk());
-		// Si quieres que falle, cambia el nombre del CSS
+		
 	}
 	
-	@Test
-    public void contextLoads() throws Exception {
-    	//Deberia fallar aposta
-    	assertThat(true).isTrue();
-    }
-
 }

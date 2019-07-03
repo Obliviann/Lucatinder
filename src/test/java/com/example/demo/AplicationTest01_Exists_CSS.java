@@ -29,7 +29,7 @@ public class AplicationTest01_Exists_CSS {
 	@Test
 	public void shouldReturnCssFile() throws Exception {
 
-		this.mockMvc.perform(get("/resources/static/css/estilos.css")).andDo(print()).andExpect(status().isOk());
+		this.mockMvc.perform(get("/resources/css/estilos.css")).andDo(print()).andExpect(status().isOk());
 		// Si quieres que falle, cambia el nombre del CSS
 	}
 	

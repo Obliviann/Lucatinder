@@ -18,9 +18,18 @@ import com.example.demo.datos.UsuarioRepository;
 import com.example.demo.model.Usuario;
 import com.github.javafaker.Faker;
 
+/**
+ * Todos los Métodos que trabajaran con la BD.
+ * @author: Marian, Daniel, Luciano y Olivia
+ * @version: 03/07/2019
+ * 
+ */
+
+
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
+	//Variables necesarias para esta clase
 	private static final Logger logger = LoggerFactory.getLogger(UsuarioServiceImpl.class);
 
 	@PersistenceContext
@@ -29,13 +38,28 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
 
+	
+	/**
+     * Método que creara el usuario y lo enviará a la BD.
+     * @param Usuario user . Se le pasa un usuario a este método.
+     * @return  user . Retorna el usuario que se guardará.
+     * @version 1
+     */
 	@Override
 	public Usuario create(Usuario user) {
 		// TODO Auto-generated method stub
 		System.out.println("--- " + user);
 		return repository.save(user);
 	}
+	//Cierre del Método
 
+	
+	/**
+     * Método que borrará por un ID que se le pase.
+     * @param id . Se le pasa un ID que será equivalente al userid de la base de datos
+     * @return user . Retorna el usuario que se guardará.
+     * @version 1
+     */
 	@Override
 	public Usuario deleteById(int id) {
 		// TODO Auto-generated method stub
@@ -44,7 +68,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 			repository.delete(user);
 		}
 		return user;
-	}
+	}//Cierre del Método
 
 	@Override
 	public List<Usuario> findAll() {

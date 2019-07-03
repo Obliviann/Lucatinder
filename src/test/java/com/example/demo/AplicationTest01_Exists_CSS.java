@@ -1,4 +1,4 @@
-package pruebas;
+package com.example.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -19,9 +19,9 @@ import org.springframework.test.web.servlet.MockMvc;
  * @version 1.0.0
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = { AplicationTest01_CSS_Exist.class })
+@SpringBootTest
 @AutoConfigureMockMvc
-public class AplicationTest01_CSS_Exist {
+public class AplicationTest01_Exists_CSS {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -29,7 +29,7 @@ public class AplicationTest01_CSS_Exist {
 	@Test
 	public void shouldReturnCssFile() throws Exception {
 
-		this.mockMvc.perform(get("resources/css/estilos.css")).andDo(print()).andExpect(status().isOk());
+		this.mockMvc.perform(get("/resources/static/css/estilos.css")).andDo(print()).andExpect(status().isOk());
 		// Si quieres que falle, cambia el nombre del CSS
 	}
 	

@@ -20,9 +20,9 @@ public interface UsuarioService {
 	
 	List<Usuario> generateTen();
 	
-	void like(int id1, int id2);
+	Usuario like(int id1, int id2);
 	
-	void dislike(int id1, int id2);
+	Usuario dislike(int id1, int id2);
 	
 	List<Usuario> verMatches(int id1);
 	

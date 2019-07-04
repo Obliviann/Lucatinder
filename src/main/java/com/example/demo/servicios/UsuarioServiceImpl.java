@@ -178,7 +178,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	@Transactional
-	public void like(int id1, int id2) {
+	public Usuario like(int id1, int id2) {
 		// TODO Auto-generated method stub
 		logger.info("--- En método like de la clase PerfilRpositoryImpl");
 		entityManager
@@ -200,18 +200,23 @@ public class UsuarioServiceImpl implements UsuarioService {
 				.setParameter(1, null).setParameter(2, id1).setParameter(3, id2).executeUpdate();
 			}
 		}
+		
+		return findById(id1);
 
 	}
 
 	@Override
 	@Transactional
-	public void dislike(int id1, int id2) {
+	public Usuario dislike(int id1, int id2) {
 		// TODO Auto-generated method stub
 		logger.info("--- En método like de la clase PerfilRpositoryImpl");
 		entityManager
 				.createNativeQuery(
 						"INSERT INTO lucatinder.descartes (iddescarte, fk_idusuario, fk_idusuario2) VALUES (?,?,?)")
 				.setParameter(1, null).setParameter(2, id1).setParameter(3, id2).executeUpdate();
+		
+		return findById(id1);
+		
 	}
 
 }

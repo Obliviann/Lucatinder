@@ -42,7 +42,6 @@ public class UsuarioController {
 	public Usuario update(@PathVariable("idusuario") int id, @RequestBody Usuario usuario) {
 		usuario.setIdusuario(id);
 		return usuarioService.update(usuario);
-
 	}
 	
 	@DeleteMapping(path = { "/{idusuario}" })
@@ -51,36 +50,31 @@ public class UsuarioController {
 	}
 
 	// Rest para añadir generar los 10 usuarios
-	@GetMapping(path = { "/ten" })
-	public List<Usuario> generateTen() {
-		return usuarioService.generateTen();
+	@GetMapping(path = { "/list/{idusuario}" })
+	public List<Usuario> getList(@PathVariable("idusuario") int id) {
+		return usuarioService.findContactos(id);
 	}
 	
 	/* HECHO EL 01/07/2019 */
-	@PutMapping(path = "/like/{id1}/{id2}")
-	public void like(@PathVariable int id1, @PathVariable int id2) {
+	@GetMapping(path = "/like/{id1}/{id2}")
+	public Usuario like(@PathVariable("id1") int id1, @PathVariable("id2") int id2) {
 		logger.info("----- Ejecutando query en el servicio REST. Ruta del paquete: controller.UsuarioController.java -----");
 		logger.info("id1 que recibe el REST: "+id1+" -- | -- id2 que recibe el REST: "+id2);
-		usuarioService.like(id1, id2);
-		
+		return usuarioService.like(id1, id2);
 	}
 	
-	@PostMapping("/dislike")
-	public void dislike(@RequestBody int id1, @RequestBody int id2) {
+	@GetMapping(path = "/dislike/{id1}/{id2}")
+	public Usuario dislike(@PathVariable("id1") int id1, @PathVariable("id2") int id2) {
 		logger.info("----- Ejecutando query en el servicio REST. Ruta del paquete: controller.UsuarioController.java -----");
 		logger.info("id1 que recibe el REST: "+id1+" -- | -- id2 que recibe el REST: "+id2);
-		usuarioService.like(id1, id2);
-		
+		return usuarioService.like(id1, id2);
 	}
-	
 	
 	@GetMapping(path = "/matches/{idusuario}")
 	public List<Usuario> verMatches(@PathVariable("idusuario") int id1){
 		logger.info("---- Ejecutando query para ver los matches en el REST.");
 		logger.info("el id que buscará en la query es: "+id1);
-		
 		return usuarioService.verMatches(id1);
-		
 	} 
 	
 }

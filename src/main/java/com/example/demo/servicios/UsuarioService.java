@@ -11,9 +11,17 @@ public interface UsuarioService {
 	Usuario deleteById(int id);
 
 	List<Usuario> findAll();
+	
+	List<Usuario> findContactos(int id);
 
 	Usuario findById(int id);
 
 	Usuario update(Usuario user);
+	
+	List<Usuario> generateTen();
+	
+	void like(int id1, int id2);
+	
+	void dislike(int id1, int id2);
 	
 }

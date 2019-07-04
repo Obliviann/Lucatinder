@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-     <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Inicio</title>
+<link rel="stylesheet" href="resources/css/estilos.css">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+	rel="stylesheet">
 </head>
+
 <body>
+<<<<<<< HEAD
   <div class="titulo"><p>LucaTinder</p></div>
   
   <div class="navbarTinder">
@@ -48,5 +52,66 @@
   </div>
               
   </div>
+=======
+	<div class="titulo">
+		<a href="/listado"><p>LucaTinder</p></a>
+	</div>
+
+	<div class="navbarTinder">
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link text-info" href="#!">Perfil</a>
+			</li>
+			<li class="nav-item"><a class="nav-link text-info" href="/matches">Matches</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="grilla">
+
+		<div class="col-md-4 text-center" style="margin: auto">
+			<h2 class="subtitulo">Perfiles seleccionados</h2>
+			<div class="table-responsive-md">
+				<table id="listado" class="table">
+
+					<tr>
+						<td style="font-weight: bold; text-align: left">Nombre</td>
+						<td style="font-weight: bold">Género</td>
+						<td style="font-weight: bold">Like</td>
+						<td style="font-weight: bold">DisLike</td>
+					</tr>
+
+					<tr th:each="users : ${listado}">
+
+						<!-- <td><img src="images/1.jpg" class="imgTinder" alt="Responsive image" style="width: 60px"></td> -->
+						<td style="text-align: left" th:text=${users.nombre}>Nombre</td>
+						<td th:text=${users.genero}>Fecha de Nacimiento</td>
+						<td>
+							<form method="POST" th:action="@{/like}">
+								<input type="hidden" name="id1" id="personId"
+									th:value="${user.idusuario}" /> 
+								<input type="hidden" name="id2" id="personId2" 
+									th:value="${users.idusuario}" />
+								<button type="submit" name="submit" value="value" id="btn-like"
+									class="btn btn-success">♥</button>
+							</form>
+						</td>
+						<td>
+							<form method="POST" th:action="@{/dislike}">
+								<input type="hidden" name="id1" id="personId"
+									th:value="${user.idusuario}" /> 
+								<input type="hidden"
+									name="id2" id="personId" th:value="${users.idusuario}" />
+								<button type="submit" name="submit" value="value" id="btn-dislike"
+									class="btn btn-danger">X</button>
+							</form>
+						</td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+
+	</div>
+>>>>>>> 236759c5e41cd236218efed9058f737f00e4a5ea
 </body>
 </html>

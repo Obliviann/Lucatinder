@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,88 +11,100 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
-	private int idUsuario;
-	private String Nombre;
-	private String Género;
-	private Date Edad;
-	private String Población;
-	private int idIntereses;
-	private String Descripción;
+	private int idusuario;
+	private String nombre;
+	private String genero;
+	private Date edad;
+	private String poblacion;
+	private Integer idintereses;
+	private String descripcion;
 	
+	public Usuario() {
+		super();
+	}
 	
+	public Usuario(int idusuario, String nombre, String genero, Date edad, String poblacion, Integer idintereses,
+			String descripcion) {
+		super();
+		this.idusuario = idusuario;
+		this.nombre = nombre;
+		this.genero = genero;
+		this.edad = edad;
+		this.poblacion = poblacion;
+		this.idintereses = idintereses;
+		this.descripcion = descripcion;
+	}
 
-	
+	public Usuario(String nombre, String genero, Date edad) {
+		super();
+		this.nombre = nombre;
+		this.genero = genero;
+		this.edad = edad;
+	}
+
 	@Id
 	@GeneratedValue
-	public int getIdUsuario() {
-		return idUsuario;
+	public int getIdusuario() {
+		return idusuario;
 	}
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-	
-	
-	
-	
 	public String getNombre() {
-		return Nombre;
-	}
-	public void setNombre(String nombre) {
-		Nombre = nombre;
+		return nombre;
 	}
 	
 	
-	
-	public String getGénero() {
-		return Género;
+	public String getGenero() {
+		return genero;
 	}
-	public void setGénero(String género) {
-		Género = género;
-	}
-	
-	
-	
 	public Date getEdad() {
-		return Edad;
+		return edad;
 	}
+	
+	
+	public String getPoblacion() {
+		return poblacion;
+	}
+	public Integer getIdintereses() {
+		return idintereses;
+	}
+	
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setIdusuario(int idusuario) {
+		this.idusuario = idusuario;
+	}
+	
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+	
+	
 	public void setEdad(Date edad) {
-		Edad = edad;
+		this.edad = edad;
+	}
+	public void setPoblacion(String poblacion) {
+		this.poblacion = poblacion;
 	}
 	
-	
-	
-	public String getPoblación() {
-		return Población;
+	@Column(nullable=true)
+	public void setIdintereses(Integer idintereses) {
+		this.idintereses = idintereses;
 	}
-	public void setPoblación(String población) {
-		Población = población;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
-	
-	
-	
-	public int getIdIntereses() {
-		return idIntereses;
-	}
-	public void setIdIntereses(int idIntereses) {
-		this.idIntereses = idIntereses;
-	}
-	
-	
-	
-	public String getDescripción() {
-		return Descripción;
-	}
-	public void setDescripción(String descripción) {
-		Descripción = descripción;
-	}
-	
-	
-	
+
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", Nombre=" + Nombre + ", Género=" + Género + ", Edad=" + Edad
-				+ ", Población=" + Población + ", idIntereses=" + idIntereses + ", Descripción=" + Descripción + "]";
+		return "Usuario [idusuario=" + idusuario + ", nombre=" + nombre + ", genero=" + genero + ", edad=" + edad
+				+ ", poblacion=" + poblacion + ", idintereses=" + idintereses + ", descripcion=" + descripcion + "]";
 	}
+	
 	
 	
 	

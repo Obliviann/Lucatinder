@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>LucaTinder</title>
@@ -8,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-     <div class="titulo"><p>LucaTinder</p></div>
+     <div class="titulo">
+     <a href="/listado"><p>LucaTinder</p></a>
+     </div>
    
         <!-- ------------ INICIAR SESIÓN ------------- -->
    
@@ -23,15 +26,24 @@
 						 </div>
 					</div>
                    <form 
+<<<<<<< HEAD
                    		action="@{/login}" 
                    		method="get" 
+=======
+                   		th:action="@{/login}" 
+                   		method="post" 
+>>>>>>> 236759c5e41cd236218efed9058f737f00e4a5ea
                    		name="login"
                    		th:object="${user}">                   		
                    		<!-- PONER EL NOMBRE FINAL DEL MÉTODO --> 
                    		
                    		
                            <div class="form-group">
+<<<<<<< HEAD
                            	  <input type="text" name="text" th:field="*{idUsuario}" class="form-control" aria-describedby="number" placeholder="Ingrese ID de usuario" style="margin: auto">
+=======
+                           	  <input type="number" name="text" th:field="*{idusuario}" class="form-control" placeholder="Ingrese ID de usuario" style="margin: auto" min="1505">
+>>>>>>> 236759c5e41cd236218efed9058f737f00e4a5ea
                            </div>
                                                       
                            <div class="col-md-12 text-center ">
@@ -58,18 +70,36 @@
                            </div>
                         </div>
                         
+<<<<<<< HEAD
                         <form action="@{/new}"
                         	method="get" 
+=======
+                        <form 
+                        	th:action="@{/save}"
+                        	method="post" 
+>>>>>>> 236759c5e41cd236218efed9058f737f00e4a5ea
                         	name="registration"
                         	th:object="${user}">                        	
                         	<!-- PONER EL NOMBRE FINAL DEL MÉTODO -->                         	                 
                         
                            <div class="form-group">
+<<<<<<< HEAD
                               <input type="text"  name="name" th:field="*{Nombre}" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese nombre completo" style="margin: auto">
                            </div>
                            
                            <div class="form-group">
                               <input type="email" name="email" th:field="*{Edad}"  class="form-control" aria-describedby="emailHelp" placeholder="Ingrese Edad" style="margin: auto">
+=======
+                              <input type="text"  name="name" th:field="*{nombre}" class="form-control" aria-describedby="" placeholder="Ingrese nombre completo" style="margin: auto">
+                           </div>
+                           
+                           <div class="form-group">
+                              <input type="text" name="edad" th:field="*{edad}"  class="form-control" aria-describedby="" placeholder="Ingrese fecha de nacimiento (aaaa/mm/dd)" style="margin: auto">
+                           </div>
+                           
+                           <div class="form-group">
+                              <input type="text" name="genero" th:field="*{genero}"  class="form-control" aria-describedby="" placeholder="Ingrese género (h/m/a)" style="margin: auto">
+>>>>>>> 236759c5e41cd236218efed9058f737f00e4a5ea
                            </div>
                           
                            <div class="col-md-12 text-center mb-3">
